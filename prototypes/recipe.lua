@@ -2,7 +2,7 @@ local snowballRecipe = {
     type = "recipe",
     name = "snowball",
     category = "crafting-with-fluid",
-    enabled = false,
+    enabled = true,
     energy_required = 4,
     ingredients =
     {

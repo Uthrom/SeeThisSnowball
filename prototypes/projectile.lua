@@ -14,14 +14,15 @@ local Constants = require("constants")
           type = "instant",
           target_effects =
           {
+--            {
+--              type = "create-entity",
+--              entity_name = "medium-explosion"
+--            },
             {
               type = "create-entity",
-              entity_name = "medium-explosion"
-            },
-            {
-              type = "create-entity",
-              entity_name = "small-scorchmark",
-              check_buildability = true
+              entity_name = "snowball",
+              check_buildability = true,
+	      trigger_created_entity = "true"
             }
           }
         }
@@ -36,11 +37,11 @@ local Constants = require("constants")
           {
             {
             type = "damage",
-            damage = {amount = -1, type = "impact"}
-            },
-            {
-            type = "create-entity",
-            entity_name = "explosion"
+            damage = {amount = 1, type = "impact"}
+--            },
+--             {
+--            type = "create-entity",
+--            entity_name = "explosion"
             }
           }
         }
@@ -49,7 +50,7 @@ local Constants = require("constants")
     light = {intensity = 0, size = 4},
     animation =
     {
-      filename = Constants.AssetModName .. "/graphics/capsule/snowball.png",
+      filename = Constants.AssetModName .. "/graphics/projectile/snowball.png",
       frame_count = 1,
       width = 24,
       height = 24,
