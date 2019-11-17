@@ -21,8 +21,8 @@ function event_callbacks.on_entity_damaged (event)
     return
   end
 
-  if event.entity.player then
-    teleport(event.entity.player, event.entity.position, 50)
+  if event.entity.type == "character" and event.cause.type == "character" and event.entity.player.valid then
+      teleport(event.entity.player, event.entity.position, 50)
   end
 end 
 
