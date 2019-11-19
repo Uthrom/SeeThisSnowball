@@ -5,8 +5,6 @@ local function teleport(player, destination, r)
     local pos = { math.random(destination.x - r, destination.x + r), math.random(destination.y - r, destination.y + r) }
     local dst = surface.find_non_colliding_position("character", pos, 8, 2)
 
---    log("Old pos: " .. serpent.block(destination) .. ", new pos: " .. serpent.block(dst))
-
     if not dst then
       player.teleport(destination, surface)
     else
@@ -15,20 +13,21 @@ local function teleport(player, destination, r)
 end
 
 function event_callbacks.on_entity_damaged (event)
-  log("on_entity_damaged called")
+--  log("on_entity_damaged called")
 
   if not event.entity.valid then
     return
   end
 
-  if event.damage_type.name == "impact" and event.entity.type == "character" and event.cause.type == "character" and event.entity.player.valid then
+  if event.damage_type.name == "snowball" and event.entity.type == "character" and event.cause.type == "character" and event.entity.player.valid then
     teleport(event.entity.player, event.entity.position, 50)
-    event.entity.damage( -1, event.entity.force, "impact")
   end
+
+  event.entity.damage( -1, event.entity.force, "impact")
 end 
 
 function event_callbacks.on_trigger_created_entity (event)
-  log("on_trigger_created_entity called")
+--  log("on_trigger_created_entity called")
 
   if not event.entity.valid then
     return

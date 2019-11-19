@@ -37,7 +37,7 @@ local Constants = require("constants")
           {
             {
             type = "damage",
-            damage = {amount = 1, type = "impact"}
+            damage = {amount = 1, type = "snowball"}
 --            },
 --             {
 --            type = "create-entity",

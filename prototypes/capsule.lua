@@ -38,5 +38,4 @@ local snowballCapsule = {
     stack_size = 100
 }
 
-log(serpent.block(snowballCapsule))
 data:extend({snowballCapsule})
