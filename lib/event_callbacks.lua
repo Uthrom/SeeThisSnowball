@@ -19,11 +19,15 @@ function event_callbacks.on_entity_damaged (event)
     return
   end
 
-  if event.damage_type.name == "snowball" and event.entity.type == "character" and event.cause.type == "character" and event.entity.player.valid then
-    teleport(event.entity.player, event.entity.position, 50)
-  end
+  if event.damage_type.name == "snowball" then
+    if event.entity.type == "character" and
+       event.cause.type == "character" and 
+       event.entity.player.valid then
 
-  event.entity.damage( -1, event.entity.force, "impact")
+      teleport(event.entity.player, event.entity.position, 50)
+    end
+    event.entity.damage( -1, event.entity.force, "impact")
+  end
 end 
 
 function event_callbacks.on_trigger_created_entity (event)
