@@ -26,7 +26,7 @@ function event_callbacks.on_entity_damaged (event)
 
       teleport(event.entity.player, event.entity.position, 50)
     end
-    event.entity.damage( -1, event.entity.force, "impact")
+    event.entity.damage( event.final_damage_amount * -1, event.entity.force, "impact")
   end
 end 
 

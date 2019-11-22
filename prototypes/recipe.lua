@@ -1,6 +1,6 @@
-local snowballRecipe = {
+local snowballWaterRecipe = {
     type = "recipe",
-    name = "snowball",
+    name = "water-snowball",
     category = "crafting-with-fluid",
     enabled = true,
     energy_required = 4,
@@ -12,4 +12,4 @@ local snowballRecipe = {
     result_count = 1
   }
 
-data:extend({snowballRecipe})
+data:extend({snowballWaterRecipe})
