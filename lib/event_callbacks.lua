@@ -1,15 +1,15 @@
 local event_callbacks = {}
 
 local function teleport(player, destination, r)
-    local surface = player.surface
-    local pos = { math.random(destination.x - r, destination.x + r), math.random(destination.y - r, destination.y + r) }
-    local dst = surface.find_non_colliding_position("character", pos, 8, 2)
+  local surface = player.surface
+  local pos = { math.random(destination.x - r, destination.x + r), math.random(destination.y - r, destination.y + r) }
+  local dst = surface.find_non_colliding_position("character", pos, 8, 2)
 
-    if not dst then
-      player.teleport(destination, surface)
-    else
-      player.teleport(dst, surface)
-    end
+  if not dst then
+    player.teleport(destination, surface)
+  else
+    player.teleport(dst, surface)
+  end
 end
 
 function event_callbacks.on_entity_damaged (event)
@@ -26,6 +26,7 @@ function event_callbacks.on_entity_damaged (event)
 
       teleport(event.entity.player, event.entity.position, 50)
     end
+
     event.entity.damage( event.final_damage_amount * -1, event.entity.force, "impact")
   end
 end 

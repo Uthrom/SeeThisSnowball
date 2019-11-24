@@ -4,21 +4,22 @@ Date: 2019-11-04
   Features:
   Changes:
   Bug fixes:
-  Info: First release
+  Info:
+        First release
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 2019-11-04
   Features:
   Changes:
   Bug fixes:
-	Fixed damage, fixed locale issues
+        Fixed damage, fixed locale issues
   Info:
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.2
 Date: 2019-11-04
   Features:
   Changes:
-	- Added handcrafting recipe integration with Darkfrei's Ice Ore
+        Added handcrafting recipe integration with Darkfrei's Ice Ore
   Bug fixes:
   Info:
 ---------------------------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Date: 2019-11-04
   Features:
   Changes:
   Bug fixes:
-	- Fixed issue with bonus damage
+        Fixed issue with bonus damage
   Info:
 ---------------------------------------------------------------------------------------------------
 
