@@ -3,8 +3,8 @@
     "version": "0.1.3",
     "title": "See This Snowball?",
     "author": "Uthrom",
-    "contact": "https://mods.factorio.com/mod/TheDeadBurn_v17/discussion",
-    "homepage": "https://github.com/Uthrom/TheDeadBurn_v17",
+    "contact": "https://mods.factorio.com/mod/SeeThisSnowball/discussion",
+    "homepage": "https://github.com/Uthrom/SeeThisSnowball",
     "factorio_version": "0.17",
     "dependencies": ["base >= 0.17", "? IceOre"],
 
