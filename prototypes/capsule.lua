@@ -15,7 +15,7 @@ local snowballCapsule = {
         ammo_category = "grenade",
         cooldown = 30,
         projectile_creation_distance = 0.6,
-        range = 15,
+        range = 20,
         ammo_type =
         {
           category = "grenade",
