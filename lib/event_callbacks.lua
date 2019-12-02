@@ -1,30 +1,42 @@
 local event_callbacks = {}
 
-local function teleport(player, destination, r)
-  local surface = player.surface
-  local pos = { math.random(destination.x - r, destination.x + r), math.random(destination.y - r, destination.y + r) }
+local function teleport(entity, dest, r)
+  local surface = entity.surface
+  local pos = { math.random(dest.x - r, dest.x + r), math.random(dest.y - r, dest.y + r) }
   local dst = surface.find_non_colliding_position("character", pos, 8, 2)
 
   if not dst then
-    player.teleport(destination, surface)
+    entity.teleport(destination)
   else
-    player.teleport(dst, surface)
+    entity.teleport(dst)
   end
 end
 
 function event_callbacks.on_entity_damaged (event)
---  log("on_entity_damaged called")
-
   if not event.entity.valid then
     return
   end
 
   if event.damage_type.name == "snowball" then
-    if event.entity.type == "character" and
-       event.cause.type == "character" and 
-       event.entity.player.valid then
+--    log("Snowball damage")
+    local s_dist = settings.global['snowball-tp-distance'].value
+    local s_vehicles = settings.global['snowball-allow-vehicles'].value
+    local s_biters   = settings.global['snowball-allow-biters'].value
+    local s_entities = settings.global['snowball-allow-entities'].value
 
-      teleport(event.entity.player, event.entity.position, 50)
+--    log("Before: " .. event.entity.type)
+
+    if event.entity.type == "character" and event.entity.player.is_player() then
+--	log("Character")
+        teleport(event.entity, event.entity.position, s_dist)
+    elseif event.entity.type == "car" and s_vehicles == true then
+--	log("Car")
+        teleport(event.entity, event.entity.position, s_dist)
+    elseif event.entity.type == "unit" and s_biters == true then
+--	log("Unit")
+        teleport(event.entity, event.entity.position, s_dist)
+--    else
+--      log(serpent.block(event.entity.type))
     end
 
     event.entity.damage( event.final_damage_amount * -1, event.entity.force, "impact")
@@ -32,11 +44,10 @@ function event_callbacks.on_entity_damaged (event)
 end 
 
 function event_callbacks.on_trigger_created_entity (event)
---  log("on_trigger_created_entity called")
-
   if not event.entity.valid then
     return
   else 
+--    log(serpent.block(event))
     event.entity.destroy()
   end
 end
