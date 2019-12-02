@@ -6,7 +6,7 @@ local function teleport(entity, dest, r)
   local dst = surface.find_non_colliding_position("character", pos, 8, 2)
 
   if not dst then
-    entity.teleport(destination)
+    entity.teleport(dest)
   else
     entity.teleport(dst)
   end
