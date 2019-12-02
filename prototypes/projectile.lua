@@ -14,10 +14,6 @@ local Constants = require("constants")
           type = "instant",
           target_effects =
           {
---            {
---              type = "create-entity",
---              entity_name = "medium-explosion"
---            },
             {
               type = "create-entity",
               entity_name = "snowball",
