@@ -5,21 +5,21 @@ Date: 2019-11-04
   Changes:
   Bug fixes:
   Info:
-        First release
+    - First release
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 2019-11-04
   Features:
   Changes:
   Bug fixes:
-        Fixed damage, fixed locale issues
+    - Fixed damage, fixed locale issues
   Info:
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.2
 Date: 2019-11-04
   Features:
   Changes:
-        Added handcrafting recipe integration with Darkfrei's Ice Ore
+    - Added handcrafting recipe integration with Darkfrei's Ice Ore
   Bug fixes:
   Info:
 ---------------------------------------------------------------------------------------------------
@@ -28,7 +28,14 @@ Date: 2019-11-04
   Features:
   Changes:
   Bug fixes:
-        Fixed issue with bonus damage
+    - Fixed issue with bonus damage
   Info:
 ---------------------------------------------------------------------------------------------------
-
+Version: 0.1.5
+Date: 2019-11-04
+  Features:
+    - Allows biters and vehicles to be teleported (setting enable/disable).
+  Changes:
+  Bug fixes:
+  Info:
+    - The entities setting doesn't work yet, but was too much work to back out temporarily
