@@ -12,30 +12,39 @@ local function teleport(entity, dest, r)
   end
 end
 
-function event_callbacks.on_entity_damaged (event)
+function event_Callbacks.Init () {
+    local s_vehicles = settings.global['snowball-allow-vehicles'].value
+    local s_biters   = settings.global['snowball-allow-biters'].value
+    local s_entities = settings.global['snowball-allow-entities'].value
+
+    script.on_event( defines.events.on_entity_damaged, 
+                     event_callbacks._damaged_entity, 
+                     {{filter='type', type='character'}})
+
+    if s_vehicles == true then
+      script.on_event( defines.events.on_entity_damaged, 
+                       event_callbacks._damaged_entity, 
+                       {{filter='type', type='car'}})
+    end
+
+    if s_biters == true then
+      script.on_event( defines.events.on_entity_damaged, 
+                       event_callbacks._damaged_entity, 
+                       {{filter='type', type='unit'}})
+    end
+end
+
+function event_callbacks._damaged_entity (event)
   if not event.entity.valid then
     return
   end
 
   if event.damage_type.name == "snowball" then
     local s_dist = settings.global['snowball-tp-distance'].value
-    local s_vehicles = settings.global['snowball-allow-vehicles'].value
-    local s_biters   = settings.global['snowball-allow-biters'].value
-    local s_entities = settings.global['snowball-allow-entities'].value
-
-    if event.entity.type == "character" and event.entity.player.is_player() then
-        teleport(event.entity, event.entity.position, s_dist)
-    elseif event.entity.type == "car" and s_vehicles == true then
-        teleport(event.entity, event.entity.position, s_dist)
-    elseif event.entity.type == "unit" and s_biters == true then
-        teleport(event.entity, event.entity.position, s_dist)
---    else
---      log(serpent.block(event.entity.type))
-    end
-
-    event.entity.damage( event.final_damage_amount * -1, event.entity.force, "impact")
+    teleport(event.entity, event.entity.position, s_dist)
   end
-end 
+  event.entity.damage( event.final_damage_amount * -1, event.entity.force, "impact")
+end
 
 function event_callbacks.on_trigger_created_entity (event)
   if not event.entity.valid then
