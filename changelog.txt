@@ -44,7 +44,6 @@ Version: 0.1.6
 Date: 2019-11-04
   Features:
   Changes:
+    - Updated on_entity_damaged code to use filters, so it only triggers on the entities specified by the settings
   Bug fixes:
-    - Fixed issue with bonus damage
   Info:
--
