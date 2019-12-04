@@ -42,9 +42,12 @@ function event_callbacks._damaged_entity (event)
 
   if event.damage_type.name == "snowball" then
     local s_dist = settings.global['snowball-tp-distance'].value
+
     teleport(event.entity, event.entity.position, s_dist)
+
+    event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
   end
-  event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
+
 end
 
 function event_callbacks.on_trigger_created_entity (event)
