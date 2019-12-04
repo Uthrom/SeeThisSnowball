@@ -12,27 +12,24 @@ local function teleport(entity, dest, r)
   end
 end
 
-function event_Callbacks.Init () {
+function event_callbacks.Init (e)
   local s_vehicles = settings.global['snowball-allow-vehicles'].value
   local s_biters   = settings.global['snowball-allow-biters'].value
   local s_entities = settings.global['snowball-allow-entities'].value
 
-  script.on_event( defines.events.on_entity_damaged, 
-                   event_callbacks._damaged_entity, 
-                   {{filter='type', type='character'}})
+  local damage_filter = {{filter='type', type='character'}}
 
   if s_vehicles == true then
-    script.on_event( defines.events.on_entity_damaged, 
-                       event_callbacks._damaged_entity, 
-                       {{filter='type', type='car'}})
+    table.insert(damage_filter, {filter='type', type='car'})
   end
 
   if s_biters == true then
-    script.on_event( defines.events.on_entity_damaged, 
-                     event_callbacks._damaged_entity, 
-                     {{filter='type', type='unit'}})
-  end
+    table.insert(damage_filter, {filter='type', type='unit'})
+   end
 
+  script.on_event( defines.events.on_entity_damaged, 
+                   event_callbacks._damaged_entity, 
+                   damage_filter )
 
   script.on_event( defines.events.on_trigger_created_entity,
                    event_callbacks.on_trigger_created_entity )
@@ -47,7 +44,7 @@ function event_callbacks._damaged_entity (event)
     local s_dist = settings.global['snowball-tp-distance'].value
     teleport(event.entity, event.entity.position, s_dist)
   end
-  event.entity.damage( event.final_damage_amount * -1, event.entity.force, "impact")
+  event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
 end
 
 function event_callbacks.on_trigger_created_entity (event)
