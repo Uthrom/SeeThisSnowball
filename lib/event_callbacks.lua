@@ -13,25 +13,29 @@ local function teleport(entity, dest, r)
 end
 
 function event_Callbacks.Init () {
-    local s_vehicles = settings.global['snowball-allow-vehicles'].value
-    local s_biters   = settings.global['snowball-allow-biters'].value
-    local s_entities = settings.global['snowball-allow-entities'].value
+  local s_vehicles = settings.global['snowball-allow-vehicles'].value
+  local s_biters   = settings.global['snowball-allow-biters'].value
+  local s_entities = settings.global['snowball-allow-entities'].value
 
+  script.on_event( defines.events.on_entity_damaged, 
+                   event_callbacks._damaged_entity, 
+                   {{filter='type', type='character'}})
+
+  if s_vehicles == true then
     script.on_event( defines.events.on_entity_damaged, 
-                     event_callbacks._damaged_entity, 
-                     {{filter='type', type='character'}})
-
-    if s_vehicles == true then
-      script.on_event( defines.events.on_entity_damaged, 
                        event_callbacks._damaged_entity, 
                        {{filter='type', type='car'}})
-    end
+  end
 
-    if s_biters == true then
-      script.on_event( defines.events.on_entity_damaged, 
-                       event_callbacks._damaged_entity, 
-                       {{filter='type', type='unit'}})
-    end
+  if s_biters == true then
+    script.on_event( defines.events.on_entity_damaged, 
+                     event_callbacks._damaged_entity, 
+                     {{filter='type', type='unit'}})
+  end
+
+
+  script.on_event( defines.events.on_trigger_created_entity,
+                   event_callbacks.on_trigger_created_entity )
 end
 
 function event_callbacks._damaged_entity (event)
