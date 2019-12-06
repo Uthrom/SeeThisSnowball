@@ -1,7 +1,82 @@
-event_callbacks = require("lib.event_callbacks")
+local Events = require("lib.events")
 
-event_callbacks.Init()
+local function CreateGlobals()
+  if global.Mod == nil then
+    global.Mod = {}
+  end
 
-script.on_event(defines.events.on_runtime_mod_setting_changed, event_callbacks.Init)
+  if global.Mod.SnowballTPDistance == nil then
+    global.Mod.SnowballTPDistance = 50
+  end
 
+  if global.Mod.SnowballSpecialAttack == nil then
+    global.Mod.SnowballSpecialAttack = {}
+  end
 
+  if global.Mod.SnowballAllowBiters == nil then
+    global.Mod.SnowballAllowBiters = false
+  end
+
+  if global.Mod.SnowballAllowVehicles == nil then
+    global.Mod.SnowballAllowVehicles = false
+  end
+
+  if global.Mod.SnowballAllowEntities == nil then
+    global.Mod.SnowballAllowEntitie = false
+  end
+end
+
+local function GetStartUpSettings()
+  if global.Mod == nil then
+    CreateGlobals()
+  end
+
+  global.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
+  global.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
+  global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
+  global.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
+
+  global.Mod.SnowballSpecialAttack = {}
+  for match in string.gmatch(settings.global['snowball-special-attack'].value, "[^, ]+") do
+    table.insert(global.Mod.SnowballSpecialAttack, match)
+  end
+end
+
+local function UpdateSetting(settingName)
+  if settingName == "snowball-tp-distance" then
+    global.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
+  end
+  if settingName == "snowball-allow-biters" then
+    global.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
+  end
+
+  if settingName == "snowball-allow-vehicles" then
+    global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
+  end
+
+  if settingName == "snowball-allow-entities" then
+    global.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
+  end
+
+  if settingName == "snowball-special-attack" then
+    for match in string.gmatch(settings.global['snowball-special-attack'].value, "[^, ]+") do
+      table.insert(global.Mod.SnowballSpecialAttack, match)
+    end
+  end
+end
+
+local function OnStartup()
+  CreateGlobals()
+  GetStartUpSettings()
+  UpdateSetting(nil)
+  Events.Init()
+end
+
+local function OnSettingChanged(event)
+  UpdateSetting(event.setting)
+  Events.Init()
+end
+
+script.on_init(OnStartup)
+script.on_configuration_changed(OnStartup)
+script.on_event(defines.events.on_runtime_mod_setting_changed, OnSettingChanged)
