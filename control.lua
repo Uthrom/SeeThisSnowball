@@ -24,6 +24,10 @@ local function CreateGlobals()
   if global.Mod.SnowballAllowEntities == nil then
     global.Mod.SnowballAllowEntitie = false
   end
+
+  if global.Mod.SnowballAllowSelf == nil then
+    global.Mod.SnowballAllowSelf = true
+  end
 end
 
 local function GetStartUpSettings()
@@ -35,6 +39,7 @@ local function GetStartUpSettings()
   global.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
   global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
   global.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
+  global.Mod.SnowballAllowSelf = settings.global['snowball-allow-self'].value
 
   global.Mod.SnowballSpecialAttack = {}
   for match in string.gmatch(settings.global['snowball-special-attack'].value, "[^, ]+") do
@@ -52,6 +57,10 @@ local function UpdateSetting(settingName)
 
   if settingName == "snowball-allow-vehicles" then
     global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
+  end
+
+  if settingName == "snowball-allow-self" then
+    global.Mod.SnowballAllowSelf = settings.global['snowball-allow-self'].value
   end
 
   if settingName == "snowball-allow-entities" then

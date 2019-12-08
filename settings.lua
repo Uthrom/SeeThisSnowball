@@ -19,15 +19,16 @@ data:extend({
   },
 
   {
-    name = "snowball-allow-biters",
+    name = "snowball-allow-self",
     type = "bool-setting",
     setting_type = "runtime-global",
-    default_value = false,
+    default_value = true,
     order = "1103"
+
   },
 
-  {
-    name = "snowball-allow-vehicles",
+ {
+    name = "snowball-allow-biters",
     type = "bool-setting",
     setting_type = "runtime-global",
     default_value = false,
@@ -35,12 +36,19 @@ data:extend({
   },
 
   {
-    name = "snowball-allow-entities",
+    name = "snowball-allow-vehicles",
     type = "bool-setting",
     setting_type = "runtime-global",
     default_value = false,
     order = "1105"
-  }  
+  },
 
+  {
+    name = "snowball-allow-entities",
+    type = "bool-setting",
+    setting_type = "runtime-global",
+    default_value = false,
+    order = "1106"
+  }
 })
 

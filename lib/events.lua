@@ -40,8 +40,11 @@ function Events._damaged_entity (event)
     return
   end
 
-  local s_dist = settings.global['snowball-tp-distance'].value
-  teleport(event.entity, event.entity.position, s_dist)
+  if global.Mod.SnowballAllowSelf == false and event.entity == event.cause then
+    return
+  end
+
+  teleport(event.entity, event.entity.position, global.Mod.SnowballTPDistance)
   event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
 
 end
