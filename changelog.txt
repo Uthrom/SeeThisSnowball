@@ -59,6 +59,7 @@ Date: 2019-11-04
 Version: 0.1.8
 Date: 2019-11-04
   Features:
+    - Added setting for whether you can throw snowball at yourself
   Changes:
     - Rewrite of control.lua to be Factorio-compliant
   Bug fixes:
