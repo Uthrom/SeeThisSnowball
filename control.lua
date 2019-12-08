@@ -68,7 +68,6 @@ end
 local function OnStartup()
   CreateGlobals()
   GetStartUpSettings()
-  UpdateSetting(nil)
   Events.Init()
 end
 
@@ -77,6 +76,11 @@ local function OnSettingChanged(event)
   Events.Init()
 end
 
+local function OnLoad()
+  Events.Init()
+end
+
 script.on_init(OnStartup)
+script.on_load(OnLoad)
 script.on_configuration_changed(OnStartup)
 script.on_event(defines.events.on_runtime_mod_setting_changed, OnSettingChanged)
