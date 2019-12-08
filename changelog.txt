@@ -44,6 +44,23 @@ Version: 0.1.6
 Date: 2019-11-04
   Features:
   Changes:
-    - Updated on_entity_damaged code to use filters, so it only triggers on the entities specified by the settings
+    - UPS saving by updatingd on_entity_damaged code to use filters, so it only triggers on the entities specified by the setting(s).
   Bug fixes:
   Info:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.7
+Date: 2019-11-04
+  Features:
+  Changes:
+  Bug fixes:
+    - Bug fix in damage handling
+  Info:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.8
+Date: 2019-11-04
+  Features:
+  Changes:
+    - Rewrite of control.lua to be Factorio-compliant
+  Bug fixes:
+  Info:
+
