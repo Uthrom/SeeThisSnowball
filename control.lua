@@ -31,10 +31,6 @@ local function CreateGlobals()
 end
 
 local function GetStartUpSettings()
-  if global.Mod == nil then
-    CreateGlobals()
-  end
-
   global.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
   global.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
   global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
