@@ -41,6 +41,7 @@ function Events._damaged_entity (event)
   end
 
   if global.Mod.SnowballAllowSelf == false and event.entity == event.cause then
+    event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
     return
   end
 
