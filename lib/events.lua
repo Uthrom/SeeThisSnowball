@@ -36,11 +36,11 @@ function Events._damaged_entity (event)
     return
   end
 
-  if not event.damage_type.name == "snowball" then
+  if event.damage_type ~= nil and (event.damage_type.name ~= "snowball") then
     return
   end
 
-  if global.Mod.SnowballAllowSelf == false and event.entity == event.cause then
+  if (global.Mod.SnowballAllowSelf == false) and (event.entity == event.cause) then
     event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
     return
   end
