@@ -46,8 +46,7 @@ function Events._damaged_entity (event)
   end
 
   teleport(event.entity, event.entity.position, global.Mod.SnowballTPDistance)
-  event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
-
+  event.entity.damage( event.final_damage_amount * -1, event.entity.force, event.damage_type.name)
 end
 
 function Events.on_trigger_created_entity (event)
