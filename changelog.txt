@@ -60,8 +60,25 @@ Version: 0.1.8
 Date: 2019-12-08
   Features:
     - Added setting for whether you can throw snowball at yourself
+    - Accidentally made everybody immune. Oops.
   Changes:
     - Rewrite of control.lua to be Factorio-compliant
   Bug fixes:
+  Info:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 2019-12-08
+  Features:
+  Changes:
+  Bug fixes:
+    - Made everybody not immune anymore
+  Info:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.10
+Date: 2019-12-11
+  Features:
+  Changes:
+  Bug fixes:
+    - Added math.abs() call around incoming damage before refunding health, added log line to see incoming damage
   Info:
 
