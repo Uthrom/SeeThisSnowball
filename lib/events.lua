@@ -40,13 +40,15 @@ function Events._damaged_entity (event)
     return
   end
 
+  log("Snowball Damage: " .. event.final_damage_amount)
+
   if (global.Mod.SnowballAllowSelf == false) and (event.entity == event.cause) then
-    event.entity.damage( event.final_damage_amount * -1, event.entity.force, "snowball")
+    event.entity.damage( math.abs(event.final_damage_amount) * -1, event.entity.force, "snowball")
     return
   end
 
   teleport(event.entity, event.entity.position, global.Mod.SnowballTPDistance)
-  event.entity.damage( event.final_damage_amount * -1, event.entity.force, event.damage_type.name)
+  event.entity.damage( math.abs(event.final_damage_amount) * -1, event.entity.force, event.damage_type.name)
 end
 
 function Events.on_trigger_created_entity (event)
