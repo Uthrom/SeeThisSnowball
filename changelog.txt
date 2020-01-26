@@ -1,59 +1,26 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.0
-Date: 2019-11-04
+Version: 0.2.0
+Date: 2020-1-26
   Features:
   Changes:
+    - Updated for 0.18
   Bug fixes:
   Info:
-    - First release
----------------------------------------------------------------------------------------------------
-Version: 0.1.1
-Date: 2019-11-04
+----------------------------------------------------------------------------------------------------
+Version: 0.1.10
+Date: 2019-12-11
   Features:
   Changes:
   Bug fixes:
-    - Fixed damage, fixed locale issues
+    - Added math.abs() call around incoming damage before refunding health, added log line to see incoming damage
   Info:
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.2
-Date: 2019-11-04
-  Features:
-  Changes:
-    - Added handcrafting recipe integration with Darkfrei's Ice Ore
-  Bug fixes:
-  Info:
----------------------------------------------------------------------------------------------------
-Version: 0.1.3
-Date: 2019-11-04
+Version: 0.1.9
+Date: 2019-12-08
   Features:
   Changes:
   Bug fixes:
-    - Fixed issue with bonus damage
-  Info:
----------------------------------------------------------------------------------------------------
-Version: 0.1.5
-Date: 2019-11-04
-  Features:
-    - Allows biters and vehicles to be teleported (setting enable/disable).
-  Changes:
-  Bug fixes:
-  Info:
-    - The entities setting doesn't work yet, but was too much work to back out temporarily
----------------------------------------------------------------------------------------------------
-Version: 0.1.6
-Date: 2019-11-04
-  Features:
-  Changes:
-    - UPS saving by updatingd on_entity_damaged code to use filters, so it only triggers on the entities specified by the setting(s).
-  Bug fixes:
-  Info:
----------------------------------------------------------------------------------------------------
-Version: 0.1.7
-Date: 2019-12-03
-  Features:
-  Changes:
-  Bug fixes:
-    - Bug fix in damage handling
+    - Made everybody not immune anymore
   Info:
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.8
@@ -66,19 +33,60 @@ Date: 2019-12-08
   Bug fixes:
   Info:
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.9
-Date: 2019-12-08
+Version: 0.1.7
+Date: 2019-12-03
   Features:
   Changes:
   Bug fixes:
-    - Made everybody not immune anymore
+    - Bug fix in damage handling
+  Info:
+--------------------------------------------------------------------------------------------------
+Version: 0.1.6
+Date: 2019-11-04
+  Features:
+  Changes:
+    - UPS saving by updatingd on_entity_damaged code to use filters, so it only triggers on the entities specified by the setting(s).
+  Bug fixes:
+  Info:
+--------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Date: 2019-11-04
+  Features:
+    - Allows biters and vehicles to be teleported (setting enable/disable).
+  Changes:
+  Bug fixes:
+  Info:
+    - The entities setting doesn't work yet, but was too much work to back out temporarily
+----------------------------------------------------------------------------------------------------
+Version: 0.1.3
+Date: 2019-11-04
+  Features:
+  Changes:
+  Bug fixes:
+    - Fixed issue with bonus damage
   Info:
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.10
-Date: 2019-12-11
+Version: 0.1.2
+Date: 2019-11-04
+  Features:
+  Changes:
+    - Added handcrafting recipe integration with Darkfrei's Ice Ore
+  Bug fixes:
+  Info:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 2019-11-04
   Features:
   Changes:
   Bug fixes:
-    - Added math.abs() call around incoming damage before refunding health, added log line to see incoming damage
+    - Fixed damage, fixed locale issues
   Info:
-
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2019-11-04
+  Features:
+  Changes:
+  Bug fixes:
+  Info:
+    - First release
+-

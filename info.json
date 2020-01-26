@@ -1,12 +1,12 @@
 {
     "name": "SeeThisSnowball",
-    "version": "0.1.10",
+    "version": "0.2.0",
     "title": "See This Snowball?",
     "author": "Uthrom",
     "contact": "https://mods.factorio.com/mod/SeeThisSnowball/discussion",
     "homepage": "https://github.com/Uthrom/SeeThisSnowball",
-    "factorio_version": "0.17",
-    "dependencies": ["base >= 0.17", "? IceOre"],
+    "factorio_version": "0.18",
+    "dependencies": ["base >= 0.18", "? IceOre"],
 
     "description": "See This Snowball? It won't hurt."
 }
