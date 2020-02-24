@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 2020-2-23
+  Features:
+  Changes:
+    -- enabled the special attack setting. Put in a comma-separated list of
+       player names
+  Bug fixes:
+  Info:
+----------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2020-1-26
   Features:
