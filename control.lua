@@ -64,6 +64,7 @@ local function UpdateSetting(settingName)
   end
 
   if settingName == "snowball-special-attack" then
+    global.Mod.SnowballSpecialAttack = {}
     for match in string.gmatch(settings.global['snowball-special-attack'].value, "[^, ]+") do
       table.insert(global.Mod.SnowballSpecialAttack, match)
     end

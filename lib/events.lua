@@ -2,8 +2,24 @@ local Events = {}
 
 local function teleport(entity, dest, r)
   local surface = entity.surface
+  local dst = dest
   local pos = { math.random(dest.x - r, dest.x + r), math.random(dest.y - r, dest.y + r) }
-  local dst = surface.find_non_colliding_position("character", pos, 8, 2)
+
+  log("Starting pos: " .. dst.x .. ", " .. dst.y)
+  if entity.player ~= nil then
+    for _, v in pairs(global.Mod.SnowballSpecialAttack) do
+      if entity.player.name == v then
+        enemy = surface.find_nearest_enemy{position=pos, max_distance=2000, force=entity.force}
+        break
+      end
+    end
+  end
+
+  if enemy then
+    dst = surface.find_non_colliding_position("character", enemy.position, 8, 2)
+  else 
+    dst = surface.find_non_colliding_position("character", pos, 8, 2)
+  end
 
   if not dst then
     entity.teleport(dest)
