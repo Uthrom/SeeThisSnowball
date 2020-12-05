@@ -6,11 +6,13 @@ local function teleport(entity, dest, r)
   local pos = { math.random(dest.x - r, dest.x + r), math.random(dest.y - r, dest.y + r) }
 
   log("Starting pos: " .. dst.x .. ", " .. dst.y)
-  if entity.player ~= nil then
-    for _, v in pairs(global.Mod.SnowballSpecialAttack) do
-      if entity.player.name == v then
-        enemy = surface.find_nearest_enemy{position=pos, max_distance=2000, force=entity.force}
-        break
+  if entity.type == "character" then
+    if entity.player ~= nil then
+      for _, v in pairs(global.Mod.SnowballSpecialAttack) do
+        if entity.player.name == v then
+          enemy = surface.find_nearest_enemy{position=pos, max_distance=2000, force=entity.force}
+          break
+        end
       end
     end
   end
