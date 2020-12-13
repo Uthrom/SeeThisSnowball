@@ -1,6 +1,7 @@
 local Events = {}
 
 local function teleport(entity, dest, r)
+  local enemy = nil
   local surface = entity.surface
   local dst = dest
   local pos = { math.random(dest.x - r, dest.x + r), math.random(dest.y - r, dest.y + r) }
