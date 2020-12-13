@@ -17,7 +17,7 @@ local function teleport(entity, dest, r)
     end
   end
 
-  if enemy then
+  if enemy ~= nil then
     dst = surface.find_non_colliding_position("character", enemy.position, 8, 2)
   else 
     dst = surface.find_non_colliding_position("character", pos, 8, 2)
