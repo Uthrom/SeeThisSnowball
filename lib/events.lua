@@ -79,10 +79,11 @@ function Events._damaged_entity (event)
 end
 
 function Events.on_trigger_created_entity (event)
-  if not event.entity.valid then
-    return
-  else 
-    event.entity.destroy()
+  if event.entity.valid then
+--    log("on_trigger_created_entity: " .. event.entity.name)
+    if event.entity.name == "snowball" then
+      event.entity.destroy()
+    end
   end
 end
 

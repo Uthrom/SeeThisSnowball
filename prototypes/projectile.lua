@@ -18,7 +18,7 @@ local Constants = require("constants")
               type = "create-entity",
               entity_name = "snowball",
               check_buildability = true,
-	      trigger_created_entity = "true"
+              trigger_created_entity = "true"
             }
           }
         }
