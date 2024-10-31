@@ -8,8 +8,9 @@ local snowballWaterRecipe = {
     {
       {type="fluid", name="water", amount=4}
     },
-    result = "snowball",
-    result_count = 1
+    results = {
+      {type="item", name="snowball", amount = 1}
+    }
   }
 
 data:extend({snowballWaterRecipe})

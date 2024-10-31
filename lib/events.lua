@@ -9,7 +9,7 @@ local function teleport(entity, dest, r)
   log("Starting pos: " .. dst.x .. ", " .. dst.y)
   if entity.type == "character" then
     if entity.player ~= nil then
-      for _, v in pairs(global.Mod.SnowballSpecialAttack) do
+      for _, v in pairs(storage.Mod.SnowballSpecialAttack) do
         if entity.player.name == v then
           enemy = surface.find_nearest_enemy{position=pos, max_distance=2000, force=entity.force}
           break
@@ -34,11 +34,11 @@ end
 function Events.Init (e)
   local damage_filter = {{filter='type', type='character'}}
 
-  if global.Mod.SnowballAllowVehicles == true then
+  if storage.Mod.SnowballAllowVehicles == true then
     table.insert(damage_filter, {filter='type', type='car'})
   end
 
-  if global.Mod.SnowballAllowBiters == true then
+  if storage.Mod.SnowballAllowBiters == true then
     table.insert(damage_filter, {filter='type', type='unit'})
    end
 
@@ -69,12 +69,12 @@ function Events._damaged_entity (event)
 --    log("Damage: NULL -> NULL: " .. event.final_damage_amount)
 --  end
 
-  if (global.Mod.SnowballAllowSelf == false) and (event.entity == event.cause) then
+  if (storage.Mod.SnowballAllowSelf == false) and (event.entity == event.cause) then
     event.entity.damage( math.abs(event.original_damage_amount) * -1, event.entity.force, "snowball")
     return
   end
 
-  teleport(event.entity, event.entity.position, global.Mod.SnowballTPDistance)
+  teleport(event.entity, event.entity.position, storage.Mod.SnowballTPDistance)
   event.entity.damage( math.abs(event.original_damage_amount) * -1, event.entity.force, event.damage_type.name)
 end
 

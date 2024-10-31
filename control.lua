@@ -1,78 +1,78 @@
 local Events = require("lib.events")
 
-local function CreateGlobals()
-  if global.Mod == nil then
-    global.Mod = {}
+local function Createstorages()
+  if storage.Mod == nil then
+    storage.Mod = {}
   end
 
-  if global.Mod.SnowballTPDistance == nil then
-    global.Mod.SnowballTPDistance = 50
+  if storage.Mod.SnowballTPDistance == nil then
+    storage.Mod.SnowballTPDistance = 50
   end
 
-  if global.Mod.SnowballSpecialAttack == nil then
-    global.Mod.SnowballSpecialAttack = {}
+  if storage.Mod.SnowballSpecialAttack == nil then
+    storage.Mod.SnowballSpecialAttack = {}
   end
 
-  if global.Mod.SnowballAllowBiters == nil then
-    global.Mod.SnowballAllowBiters = false
+  if storage.Mod.SnowballAllowBiters == nil then
+    storage.Mod.SnowballAllowBiters = false
   end
 
-  if global.Mod.SnowballAllowVehicles == nil then
-    global.Mod.SnowballAllowVehicles = false
+  if storage.Mod.SnowballAllowVehicles == nil then
+    storage.Mod.SnowballAllowVehicles = false
   end
 
-  if global.Mod.SnowballAllowEntities == nil then
-    global.Mod.SnowballAllowEntitie = false
+  if storage.Mod.SnowballAllowEntities == nil then
+    storage.Mod.SnowballAllowEntitie = false
   end
 
-  if global.Mod.SnowballAllowSelf == nil then
-    global.Mod.SnowballAllowSelf = true
+  if storage.Mod.SnowballAllowSelf == nil then
+    storage.Mod.SnowballAllowSelf = true
   end
 end
 
 local function GetStartUpSettings()
-  global.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
-  global.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
-  global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
-  global.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
-  global.Mod.SnowballAllowSelf = settings.global['snowball-allow-self'].value
+  storage.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
+  storage.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
+  storage.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
+  storage.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
+  storage.Mod.SnowballAllowSelf = settings.global['snowball-allow-self'].value
 
-  global.Mod.SnowballSpecialAttack = {}
+  storage.Mod.SnowballSpecialAttack = {}
   for match in string.gmatch(settings.global['snowball-special-attack'].value, "[^, ]+") do
-    table.insert(global.Mod.SnowballSpecialAttack, match)
+    table.insert(storage.Mod.SnowballSpecialAttack, match)
   end
 end
 
 local function UpdateSetting(settingName)
   if settingName == "snowball-tp-distance" then
-    global.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
+    storage.Mod.SnowballTPDistance = settings.global['snowball-tp-distance'].value
   end
   if settingName == "snowball-allow-biters" then
-    global.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
+    storage.Mod.SnowballAllowBiters = settings.global['snowball-allow-biters'].value
   end
 
   if settingName == "snowball-allow-vehicles" then
-    global.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
+    storage.Mod.SnowballAllowVehicles = settings.global['snowball-allow-vehicles'].value
   end
 
   if settingName == "snowball-allow-self" then
-    global.Mod.SnowballAllowSelf = settings.global['snowball-allow-self'].value
+    storage.Mod.SnowballAllowSelf = settings.global['snowball-allow-self'].value
   end
 
   if settingName == "snowball-allow-entities" then
-    global.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
+    storage.Mod.SnowballAllowEntities = settings.global['snowball-allow-entities'].value
   end
 
   if settingName == "snowball-special-attack" then
-    global.Mod.SnowballSpecialAttack = {}
+    storage.Mod.SnowballSpecialAttack = {}
     for match in string.gmatch(settings.global['snowball-special-attack'].value, "[^, ]+") do
-      table.insert(global.Mod.SnowballSpecialAttack, match)
+      table.insert(storage.Mod.SnowballSpecialAttack, match)
     end
   end
 end
 
 local function OnStartup()
-  CreateGlobals()
+  Createstorages()
   GetStartUpSettings()
   Events.Init()
 end
